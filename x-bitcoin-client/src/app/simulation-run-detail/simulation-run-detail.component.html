@@ -1,0 +1,35 @@
+<mat-toolbar color="secondary">
+  <span>Simulation Run Information</span>
+</mat-toolbar>
+<app-simulation-run-info [simulationRun]="simulationRun"></app-simulation-run-info>
+<mat-toolbar color="secondary">
+  <span>Stats</span>
+</mat-toolbar>
+<app-simulation-stats [stats]="results?.stats"></app-simulation-stats>
+<mat-toolbar color="secondary">
+  <span>Node Connection Distribution Chart</span>
+  <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
+  <button mat-raised-button color="accent" (click)="showConnectionChart = !showConnectionChart">
+    Show/Hide
+  </button>
+</mat-toolbar>
+<!--showConnectionChart-->
+<app-network-chart *ngIf="showConnectionChart"
+                   [connections]="results?.totalNumberOfConnections"></app-network-chart>
+<mat-toolbar color="secondary">
+  <span>Network Topology</span>
+  <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
+  <button mat-raised-button color="accent" (click)="showTopology = !showTopology">Show/Hide</button>
+</mat-toolbar>
+<app-network-topology *ngIf="showTopology"
+                      [topology]="results?.networkTopology"></app-network-topology>
+<mat-toolbar color="secondary">
+  <span>Block Graph</span>
+</mat-toolbar>
+<app-block-graph [blockMap]="results?.blockMap"></app-block-graph>
+<mat-toolbar color="secondary">
+  <span>Main Chain Explorer</span>
+</mat-toolbar>
+<app-chain-explorer [blockMap]="activeChainBlockMap"></app-chain-explorer>

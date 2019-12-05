@@ -1,0 +1,36 @@
+<div>
+  <table mat-table [dataSource]="stats ? [stats] : []" class="mat-elevation-z8">
+    <ng-container matColumnDef="txPerSecond">
+      <th mat-header-cell *matHeaderCellDef> Tx per Second</th>
+      <td mat-cell *matCellDef="let element"> {{element.txPerSecond | number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="blockPerSecond">
+      <th mat-header-cell *matHeaderCellDef> Blocks per Second</th>
+      <td mat-cell *matCellDef="let element"> {{element.blockPerSecond | number}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="confirmedBlockCount">
+      <th mat-header-cell *matHeaderCellDef> Blocks in Main Chain</th>
+      <td mat-cell *matCellDef="let element"> {{element.confirmedBlockCount}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="verifiedBlockCount">
+      <th mat-header-cell *matHeaderCellDef> Created Blocks</th>
+      <td mat-cell *matCellDef="let element"> {{element.verifiedBlockCount}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="confirmedTransactionCount">
+      <th mat-header-cell *matHeaderCellDef> Txs In Main Chain</th>
+      <td mat-cell *matCellDef="let element"> {{element.confirmedTransactionCount}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="verifiedTransactionCount">
+      <th mat-header-cell *matHeaderCellDef> Txs In MemPool</th>
+      <td mat-cell *matCellDef="let element"> {{element.verifiedTransactionCount}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="statsDisplayedColums"></tr>
+    <tr mat-row *matRowDef="let row; columns: statsDisplayedColums;"></tr>
+  </table>
+</div>

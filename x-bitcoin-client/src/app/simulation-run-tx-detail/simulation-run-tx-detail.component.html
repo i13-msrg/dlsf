@@ -1,0 +1,18 @@
+<mat-toolbar color="secondary">
+  <span>Simulation Run Information</span>
+</mat-toolbar>
+<app-simulation-run-info [simulationRun]="simulationRun"></app-simulation-run-info>
+<mat-toolbar color="secondary">
+  <span>Stats</span>
+</mat-toolbar>
+<app-simulation-stats [stats]="results?.stats"></app-simulation-stats>
+<mat-toolbar color="secondary">
+  <span>Received Message Statistics</span>
+</mat-toolbar>
+<app-simulation-network-stats [stats]="results?.networkStats"></app-simulation-network-stats>
+<mat-toolbar color="secondary">
+  <span>Message Count Distribution</span>
+</mat-toolbar>
+<div class="chart-container">
+  <ngx-charts-advanced-pie-chart [results]="chartData"></ngx-charts-advanced-pie-chart>
+</div>

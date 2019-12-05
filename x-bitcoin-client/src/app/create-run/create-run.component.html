@@ -1,0 +1,15 @@
+<mat-toolbar color="secondary">
+  <span>Create a new Simulation Run</span>
+  <span class="fill-remaining-space"></span>
+  <button mat-raised-button (click)="setTemplate(explorerTemplate)">Explorer</button>
+  <button mat-raised-button (click)="setTemplate(txFloodTemplate)">Tx-Flood</button>
+  <button mat-raised-button (click)="setTemplate(txErlayTemplate)">Tx-Erlay</button>
+</mat-toolbar>
+<form (ngSubmit)="onSubmit()" #myForm="ngForm" class="example-container">
+  <mat-form-field>
+    <textarea matInput cdkTextareaAutosize placeholder="Simulation Run Config" spellcheck="false"
+              name="formModelText" [(ngModel)]="formModelText"></textarea>
+  </mat-form-field>
+
+  <button type="submit" mat-button color="primary">Run</button>
+</form>

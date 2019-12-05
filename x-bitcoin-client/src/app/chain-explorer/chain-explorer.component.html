@@ -1,0 +1,17 @@
+<div class="container">
+  <mat-grid-list cols="3" rowHeight="1:2">
+    <mat-grid-tile>
+      <app-block-list-explorer class="child" [blocks]="blockHashList"
+                               [selectedBlock]="selectedBlockHash"
+                               (selectedBlockChange)="setSelectedBlockHash($event)"></app-block-list-explorer>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <app-block-explorer class="child" [block]="selectedBlock" [selectedTx]="selectedTxHash"
+                          (selectedTxChange)="setSelectedTxHash($event)"></app-block-explorer>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <app-transaction-explorer class="child" [tx]="selectedTx"
+                                (txSelected)="navigateToTx($event)"></app-transaction-explorer>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

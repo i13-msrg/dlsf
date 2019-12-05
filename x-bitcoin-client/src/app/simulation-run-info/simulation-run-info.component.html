@@ -1,0 +1,42 @@
+<div *ngIf="simulationRun">
+  <table mat-table [dataSource]="[simulationRun]" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="runId">
+      <th mat-header-cell *matHeaderCellDef> Run ID</th>
+      <td mat-cell *matCellDef="let element"> {{element.runId}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="simulationName">
+      <th mat-header-cell *matHeaderCellDef> Simulation Name</th>
+      <td mat-cell *matCellDef="let element"><b> {{element.simulationName}} </b></td>
+    </ng-container>
+
+    <ng-container matColumnDef="startDate">
+      <th mat-header-cell *matHeaderCellDef> Start</th>
+      <td mat-cell *matCellDef="let element"> {{element.startDate | date: 'medium'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="endDate">
+      <th mat-header-cell *matHeaderCellDef> End</th>
+      <td mat-cell *matCellDef="let element"> {{element.endDate | date: 'medium'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button matTooltip="Show Configuration" class="iconbutton" color="secondary"
+                (click)="showConfig()">
+          <mat-icon aria-label="config">build</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

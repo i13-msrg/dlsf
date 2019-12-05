@@ -1,0 +1,21 @@
+<div *ngIf="activeRun">
+  <mat-toolbar color="secondary">
+    <span>Realtime Run Statistics: </span>
+    &nbsp;
+    <span>{{activeRun.runId}} </span>
+    <!-- This fills the remaining space of the current row -->
+    <span class="fill-remaining-space"></span>
+
+    <button mat-button (click)="stop()">Stop</button>
+  </mat-toolbar>
+  <mat-toolbar color="secondary">
+    <span>Stats</span>
+  </mat-toolbar>
+  <app-simulation-stats [stats]="statsUpdate"></app-simulation-stats>
+</div>
+<div *ngIf="!activeRun && !noActiveSimulationError">
+  <p>Fetching Active Run...</p>
+</div>
+<div *ngIf="noActiveSimulationError">
+  <p>No Active Simulation Run</p>
+</div>

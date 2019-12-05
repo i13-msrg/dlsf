@@ -1,0 +1,21 @@
+<mat-list *ngIf="tx">
+  <h3 mat-subheader>Tx Info</h3>
+  <mat-list-item>
+    <h4 mat-line> Hash </h4>
+    <p mat-line> {{tx.hash}} </p>
+  </mat-list-item>
+  <h3 mat-subheader>Tx Inputs</h3>
+  <mat-list-item *ngFor="let txIn of tx.inputList">
+    <h4 mat-line> Prev. Tx Hash & Index </h4>
+    <p class="clickable" mat-line (click)="onTxSelection(txIn.prevTxHash)"> {{txIn.prevTxHash}}
+      : {{txIn.prevTxOutIndex}} </p>
+  </mat-list-item>
+  <h3 mat-subheader>Tx Outputs</h3>
+  <mat-list-item *ngFor="let txOut of tx.outputList">
+    <h4 mat-line> Recipient & Value </h4>
+    <p mat-line> {{txOut.recipient}} : {{txOut.value}} </p>
+  </mat-list-item>
+</mat-list>
+<p *ngIf="!tx">
+  No Tx Selected
+</p>

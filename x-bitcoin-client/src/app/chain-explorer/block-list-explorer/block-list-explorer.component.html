@@ -1,0 +1,6 @@
+<mat-list>
+  <h3 mat-subheader>Blocks</h3>
+  <mat-list-item *ngFor="let blockHash of blocks">
+    <p class="clickable" (click)="handleSelection(blockHash)">{{blockHash}}</p>
+  </mat-list-item>
+</mat-list>
